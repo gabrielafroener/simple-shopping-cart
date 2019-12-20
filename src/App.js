@@ -1,12 +1,22 @@
 import React from "react";
 import "./App.scss";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Home from "./pages/index";
+import Checkout from "./pages/checkout";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <h1>Simple Shopping Cart</h1>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/checkout">
+          <Checkout />
+        </Route>
+      </Switch>
+    </Router>
   );
-}
+};
 
 export default App;
