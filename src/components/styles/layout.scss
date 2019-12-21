@@ -1,0 +1,28 @@
+@import "../../index.scss";
+
+.layout {
+  height: 100vh;
+
+  .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    font-size: 38px;
+    background-color: #3b3561;
+    position: absolute;
+
+    .logo {
+      cursor: pointer;
+      color: white;
+    }
+
+    .cart-icon {
+      color: white;
+      position: absolute;
+      right: 2em;
+      font-size: 26px;
+      cursor: pointer;
+    }
+  }
+}

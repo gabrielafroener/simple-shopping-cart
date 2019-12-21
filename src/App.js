@@ -1,8 +1,9 @@
 import React from "react";
-import "./App.scss";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./pages/index";
 import Checkout from "./pages/checkout";
+
+import "./index.scss";
 
 const App = () => {
   return (
