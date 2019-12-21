@@ -7,8 +7,7 @@ export const products = [
     currencyId: "USD",
     currencyFormat: "$",
     isFreeShipping: true,
-    image: "https://picsum.photos/12/picsum/50",
-    idCategory: "0"
+    idCategory: 0
   },
 
   {
@@ -19,8 +18,7 @@ export const products = [
     currencyId: "USD",
     currencyFormat: "$",
     isFreeShipping: true,
-    image: "https://picsum.photos/13/picsum/50",
-    idCategory: "0"
+    idCategory: 0
   },
 
   {
@@ -31,8 +29,7 @@ export const products = [
     currencyId: "USD",
     currencyFormat: "$",
     isFreeShipping: true,
-    image: "https://picsum.photos/14/picsum/50",
-    idCategory: "2"
+    idCategory: 2
   },
 
   {
@@ -43,8 +40,7 @@ export const products = [
     currencyId: "USD",
     currencyFormat: "$",
     isFreeShipping: true,
-    image: "https://picsum.photos/15/picsum/50",
-    idCategory: "1"
+    idCategory: 1
   },
 
   {
@@ -55,8 +51,7 @@ export const products = [
     currencyId: "USD",
     currencyFormat: "$",
     isFreeShipping: true,
-    image: "https://picsum.photos/11/picsum/50",
-    idCategory: "2"
+    idCategory: 2
   },
 
   {
@@ -67,8 +62,7 @@ export const products = [
     currencyId: "USD",
     currencyFormat: "$",
     isFreeShipping: true,
-    image: "https://picsum.photos/16/picsum/50",
-    idCategory: "0"
+    idCategory: 0
   },
 
   {
@@ -79,8 +73,7 @@ export const products = [
     currencyId: "USD",
     currencyFormat: "$",
     isFreeShipping: true,
-    image: "https://picsum.photos/0/picsum/50",
-    idCategory: "1"
+    idCategory: 1
   },
 
   {
@@ -91,8 +84,7 @@ export const products = [
     currencyId: "USD",
     currencyFormat: "$",
     isFreeShipping: true,
-    image: "https://picsum.photos/1/picsum/50",
-    idCategory: "2"
+    idCategory: 2
   },
 
   {
@@ -103,8 +95,7 @@ export const products = [
     currencyId: "USD",
     currencyFormat: "$",
     isFreeShipping: true,
-    image: "https://picsum.photos/2/picsum/50",
-    idCategory: "1"
+    idCategory: 1
   },
 
   {
@@ -115,8 +106,7 @@ export const products = [
     currencyId: "USD",
     currencyFormat: "$",
     isFreeShipping: true,
-    image: "https://picsum.photos/3/picsum/50",
-    idCategory: "1"
+    idCategory: 1
   },
 
   {
@@ -127,8 +117,7 @@ export const products = [
     currencyId: "USD",
     currencyFormat: "$",
     isFreeShipping: false,
-    image: "https://picsum.photos/4/picsum/50",
-    idCategory: "0"
+    idCategory: 0
   },
 
   {
@@ -139,8 +128,7 @@ export const products = [
     currencyId: "USD",
     currencyFormat: "$",
     isFreeShipping: false,
-    image: "https://picsum.photos/5/picsum/50",
-    idCategory: "0"
+    idCategory: 0
   },
 
   {
@@ -151,8 +139,7 @@ export const products = [
     currencyId: "USD",
     currencyFormat: "$",
     isFreeShipping: true,
-    image: "https://picsum.photos/6/picsum/50",
-    idCategory: "2"
+    idCategory: 2
   },
 
   {
@@ -163,8 +150,7 @@ export const products = [
     currencyId: "USD",
     currencyFormat: "$",
     isFreeShipping: true,
-    image: "https://picsum.photos/7/picsum/50",
-    idCategory: "1"
+    idCategory: 1
   },
 
   {
@@ -175,8 +161,7 @@ export const products = [
     currencyId: "USD",
     currencyFormat: "$",
     isFreeShipping: false,
-    image: "https://picsum.photos/8/picsum/50",
-    idCategory: "2"
+    idCategory: 2
   },
 
   {
@@ -187,8 +172,7 @@ export const products = [
     currencyId: "USD",
     currencyFormat: "$",
     isFreeShipping: true,
-    image: "https://picsum.photos/9/picsum/50",
-    idCategory: "0"
+    idCategory: 0
   },
 
   {
@@ -199,8 +183,7 @@ export const products = [
     currencyId: "USD",
     currencyFormat: "$",
     isFreeShipping: true,
-    image: "https://picsum.photos/10/picsum/50",
-    idCategory: "1"
+    idCategory: 1
   },
 
   {
@@ -211,8 +194,7 @@ export const products = [
     currencyId: "USD",
     currencyFormat: "$",
     isFreeShipping: true,
-    image: "https://picsum.photos/17/picsum/50",
-    idCategory: "2"
+    idCategory: 2
   }
 ];
 
