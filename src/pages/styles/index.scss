@@ -1,0 +1,41 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 100%;
+  padding-top: 5em;
+
+  .select {
+    width: 50vw;
+  }
+
+  .list {
+    width: 50vw;
+    box-shadow: 15px 15px white;
+    border-radius: 0;
+
+    .list-item {
+      display: flex;
+
+      .image {
+        margin-right: 2em;
+      }
+
+      .button {
+        position: absolute;
+        right: 2em;
+        border-radius: 0;
+      }
+    }
+  }
+
+  @media (max-width: "1000px") {
+    .select {
+      width: 85vw;
+    }
+    .list {
+      width: 85vw;
+    }
+  }
+}
