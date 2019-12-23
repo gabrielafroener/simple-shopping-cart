@@ -21,8 +21,11 @@
       color: white;
       position: absolute;
       right: 2em;
-      font-size: 26px;
       cursor: pointer;
+
+      .icon {
+        font-size: 30px;
+      }
     }
   }
 }

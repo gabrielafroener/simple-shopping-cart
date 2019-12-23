@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { List, Select, Button } from "antd";
+import { addToCart, removeFromCart } from "../actions";
 import Layout from "../components/Layout";
 import "./styles/index.scss";
 
 const { Option } = Select;
 
-const HomePage = ({ products = [], categories = [] }) => {
+const HomePage = ({
+  products = [],
+  categories = [],
+  addToCart,
+  removeFromCart
+}) => {
   const [productsList, setProductsList] = useState(products);
 
   useEffect(() => {
@@ -19,7 +25,9 @@ const HomePage = ({ products = [], categories = [] }) => {
       : setProductsList(products.filter(p => p.idCategory === value));
   };
 
-  const addToCart = () => {};
+  const _addToCart = item => {
+    addToCart(item.id);
+  };
 
   return (
     <Layout>
@@ -46,7 +54,7 @@ const HomePage = ({ products = [], categories = [] }) => {
                 <Button
                   type="primary"
                   className="button"
-                  onClick={() => addToCart(item)}
+                  onClick={() => _addToCart(item)}
                 >
                   Add to cart
                 </Button>
@@ -64,4 +72,6 @@ const mapStateToProps = state => ({
   categories: state.products.categories
 });
 
-export default connect(mapStateToProps)(HomePage);
+export default connect(mapStateToProps, { addToCart, removeFromCart })(
+  HomePage
+);
