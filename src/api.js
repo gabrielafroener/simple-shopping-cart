@@ -212,3 +212,11 @@ export const categories = [
     title: "Ok"
   }
 ];
+
+const TIMEOUT = 100;
+
+export const getProducts = (cb, timeout) =>
+  setTimeout(() => cb(products), timeout || TIMEOUT);
+
+export const getCategories = (cb, timeout) =>
+  setTimeout(() => cb(categories), timeout || TIMEOUT);
