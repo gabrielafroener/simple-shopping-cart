@@ -1,0 +1,25 @@
+.list {
+  width: 50vw;
+  box-shadow: 15px 15px white;
+  border-radius: 0;
+
+  .list-item {
+    display: flex;
+
+    .image {
+      margin-right: 2em;
+    }
+
+    .button {
+      position: absolute;
+      right: 2em;
+      border-radius: 0;
+    }
+  }
+}
+
+@media (max-width: "1000px") {
+  .list {
+    width: 85vw;
+  }
+}
