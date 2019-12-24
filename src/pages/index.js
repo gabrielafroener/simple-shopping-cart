@@ -1,18 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { List, Select, Button } from "antd";
-import { addToCart, removeFromCart } from "../actions";
+import { addToCart } from "../actions";
 import Layout from "../components/Layout";
 import "./styles/index.scss";
 
 const { Option } = Select;
 
-const HomePage = ({
-  products = [],
-  categories = [],
-  addToCart,
-  removeFromCart
-}) => {
+const HomePage = ({ products = [], categories = [], addToCart }) => {
   const [productsList, setProductsList] = useState(products);
 
   useEffect(() => {
@@ -72,6 +67,4 @@ const mapStateToProps = state => ({
   categories: state.products.categories
 });
 
-export default connect(mapStateToProps, { addToCart, removeFromCart })(
-  HomePage
-);
+export default connect(mapStateToProps, { addToCart })(HomePage);
