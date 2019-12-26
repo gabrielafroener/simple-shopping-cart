@@ -20,10 +20,6 @@ const HomePage = ({ products = [], categories = [], addToCart }) => {
       : setProductsList(products.filter(p => p.idCategory === value));
   };
 
-  const _addToCart = item => {
-    addToCart(item);
-  };
-
   return (
     <Layout>
       <div className="home">
@@ -49,7 +45,7 @@ const HomePage = ({ products = [], categories = [], addToCart }) => {
                   <Button
                     type="primary"
                     className="button"
-                    onClick={() => _addToCart(item)}
+                    onClick={() => addToCart(item)}
                   >
                     Add to cart
                   </Button>

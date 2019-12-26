@@ -5,4 +5,34 @@
   justify-content: space-evenly;
   height: 100%;
   padding-top: 5em;
+
+  .list {
+    width: 50vw;
+    box-shadow: 15px 15px white;
+    border-radius: 0;
+
+    .list-item {
+      display: flex;
+
+      .count-section {
+        width: 5em;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        padding: 0 0.5em;
+      }
+
+      .price {
+        position: absolute;
+        right: 2em;
+      }
+    }
+  }
+
+  .total-section {
+    font-size: 24px;
+    padding: 10px;
+    box-shadow: 6px 6px #3b3561;
+    border: black solid 1px;
+  }
 }
