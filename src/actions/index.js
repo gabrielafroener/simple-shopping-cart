@@ -34,20 +34,20 @@ export const getAllCategories = {
 };
 
 // CART
-const addToCartUnsafe = productId => ({
+const addToCartUnsafe = product => ({
   type: types.ADD_TO_CART,
-  productId
+  product
 });
 
-export const addToCart = productId => dispatch => {
-  dispatch(addToCartUnsafe(productId));
+export const addToCart = product => dispatch => {
+  dispatch(addToCartUnsafe(product));
 };
 
-const removeFromCartUnsafe = productId => ({
+const removeFromCartUnsafe = product => ({
   type: types.REMOVE_FROM_CART,
-  productId
+  product
 });
 
-export const removeFromCart = productId => dispatch => {
-  dispatch(removeFromCartUnsafe(productId));
+export const removeFromCart = product => dispatch => {
+  dispatch(removeFromCartUnsafe(product));
 };

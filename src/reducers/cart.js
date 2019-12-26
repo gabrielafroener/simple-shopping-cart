@@ -1,21 +1,49 @@
 import * as types from "../constants";
+import { products } from "../api";
 
 const cart = (state = [], action) => {
+  let newState;
+  let product;
+
   switch (action.type) {
     case types.ADD_TO_CART:
-      const newState = state.concat(action.productId);
+      newState = [...state];
+      product = action.product;
+
+      if (state.length > 0) {
+        let found = false;
+
+        for (let i = 0; i < newState.length; i++) {
+          if (newState[i].id === action.product.id) {
+            newState[i].count++;
+            found = true;
+          }
+        }
+        if (!found) {
+          product.count = 1;
+          newState.push(product);
+        }
+      } else {
+        product.count = 1;
+        newState.push(product);
+      }
+
       return newState;
 
     case types.REMOVE_FROM_CART:
-      if (
-        (action.productId && state.find(i => i === action.productId)) !==
-        undefined
-      ) {
-        const newState = [...state];
-        newState.splice(state.indexOf(action.productId), 1);
+      newState = [...state];
+      product = action.product;
 
-        return newState;
-      } else return state;
+      newState.map(s => {
+        if (s.id === product.id) {
+          s.count--;
+          if (s.count === 0) {
+            newState.splice(newState.indexOf(s), 1);
+          }
+        }
+      });
+
+      return newState;
 
     default:
       return state;

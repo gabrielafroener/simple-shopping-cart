@@ -22,7 +22,7 @@ const HomePage = ({ products = [], categories = [], addToCart }) => {
   };
 
   const _addToCart = item => {
-    addToCart(item.id);
+    addToCart(item);
   };
 
   return (
