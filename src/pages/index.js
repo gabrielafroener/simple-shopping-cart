@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { Select } from "antd";
+import { Select, List, Button } from "antd";
 import { addToCart } from "../actions";
 import Layout from "../components/Layout";
 import CustomList from "../components/CustomList";
@@ -36,7 +36,29 @@ const HomePage = ({ products = [], categories = [], addToCart }) => {
           ))}
           <Option value="All">All</Option>
         </Select>
-        <CustomList items={productsList} btnFunc={_addToCart} />
+        {productsList && (
+          <List
+            className="list"
+            bordered
+            dataSource={productsList}
+            pagination={true}
+            renderItem={item =>
+              item &&
+              item.title && (
+                <List.Item className="list-item">
+                  {item.title}
+                  <Button
+                    type="primary"
+                    className="button"
+                    onClick={() => _addToCart(item)}
+                  >
+                    Add to cart
+                  </Button>
+                </List.Item>
+              )
+            }
+          />
+        )}
       </div>
     </Layout>
   );
