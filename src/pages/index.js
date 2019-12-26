@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { Select, List, Button } from "antd";
 import { addToCart } from "../actions";
 import Layout from "../components/Layout";
-import CustomList from "../components/CustomList";
 import "./styles/index.scss";
 
 const { Option } = Select;
