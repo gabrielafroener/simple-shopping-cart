@@ -1,5 +1,4 @@
 import * as types from "../constants";
-import { products } from "../api";
 
 const cart = (state = [], action) => {
   let newState;
@@ -44,6 +43,9 @@ const cart = (state = [], action) => {
       });
 
       return newState;
+
+    case types.CLEAR_CART:
+      return [];
 
     default:
       return state;

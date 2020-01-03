@@ -51,3 +51,11 @@ const removeFromCartUnsafe = product => ({
 export const removeFromCart = product => dispatch => {
   dispatch(removeFromCartUnsafe(product));
 };
+
+const clearCartUnsafe = () => ({
+  type: types.CLEAR_CART
+});
+
+export const clearCart = () => dispatch => {
+  dispatch(clearCartUnsafe());
+};

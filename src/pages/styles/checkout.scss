@@ -46,6 +46,10 @@
     .checkout-button {
       cursor: pointer;
     }
+
+    .disabled {
+      cursor: not-allowed;
+    }
   }
 
   @media (max-width: "1000px") {
