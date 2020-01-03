@@ -29,10 +29,53 @@
     }
   }
 
-  .total-section {
-    font-size: 24px;
-    padding: 10px;
-    box-shadow: 6px 6px #3b3561;
-    border: black solid 1px;
+  .checkout-section {
+    display: flex;
+    justify-content: space-between;
+    width: 50vw;
+
+    .total {
+      font-size: 24px;
+      padding: 10px;
+      box-shadow: 6px 6px #3b3561;
+      border: black solid 1px;
+      width: 9em;
+      text-align: center;
+    }
+
+    .checkout-button {
+      cursor: pointer;
+    }
+  }
+
+  @media (max-width: "1000px") {
+    .list {
+      width: 85vw;
+      font-size: 11px;
+    }
+    .checkout-section {
+      width: 85vw;
+
+      .total {
+        font-size: 14px;
+      }
+    }
+
+    .ant-pagination {
+      font-size: 11px;
+    }
+  }
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: 24px;
+  height: 9em;
+  justify-content: space-evenly;
+
+  i {
+    font-size: 48px;
   }
 }

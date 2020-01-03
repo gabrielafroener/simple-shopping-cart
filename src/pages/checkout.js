@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { List, Icon, Button } from "antd";
+import { List, Icon, Modal } from "antd";
 import { removeFromCart, addToCart } from "../actions";
 import { connect } from "react-redux";
 import Layout from "../components/Layout";
@@ -17,6 +17,12 @@ const CheckoutPage = ({ products = [], removeFromCart, addToCart }) => {
     });
     setTotalPrice(total);
   }, [products]);
+
+  const openModal = () => {
+    Modal.success({
+      content: "Done! Thank You (:"
+    });
+  };
 
   return (
     <Layout>
@@ -47,10 +53,12 @@ const CheckoutPage = ({ products = [], removeFromCart, addToCart }) => {
             )
           }
         />
+
         <div className="checkout-section">
           <div className="total">{`TOTAL: $${totalPrice.toFixed(2)}`}</div>
-          <div className="total">Checkout</div>
-          {/* <Button className="checkout-button">Checkout</Button> */}
+          <div className="total checkout-button" onClick={() => openModal()}>
+            CHECKOUT
+          </div>
         </div>
       </div>
     </Layout>
