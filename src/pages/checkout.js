@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { List, Icon } from "antd";
+import { List, Icon, Button } from "antd";
 import { removeFromCart, addToCart } from "../actions";
 import { connect } from "react-redux";
 import Layout from "../components/Layout";
@@ -21,6 +21,8 @@ const CheckoutPage = ({ products = [], removeFromCart, addToCart }) => {
   return (
     <Layout>
       <div className="checkout">
+        <h1>CHECKOUT</h1>
+        <h2>Tempo restante: {}</h2>
         <List
           className="list"
           bordered
@@ -45,7 +47,11 @@ const CheckoutPage = ({ products = [], removeFromCart, addToCart }) => {
             )
           }
         />
-        <div className="total-section">{`TOTAL: $${totalPrice}`}</div>
+        <div className="checkout-section">
+          <div className="total">{`TOTAL: $${totalPrice.toFixed(2)}`}</div>
+          <div className="total">Checkout</div>
+          {/* <Button className="checkout-button">Checkout</Button> */}
+        </div>
       </div>
     </Layout>
   );

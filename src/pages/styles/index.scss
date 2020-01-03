@@ -33,9 +33,20 @@
   @media (max-width: "1000px") {
     .list {
       width: 85vw;
+      font-size: 11px;
+
+      .list-item {
+        .button {
+          font-size: 11px;
+        }
+      }
     }
     .select {
       width: 85vw;
+    }
+
+    .ant-pagination {
+      font-size: 11px;
     }
   }
 }

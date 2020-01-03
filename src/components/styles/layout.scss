@@ -28,4 +28,12 @@
       }
     }
   }
+
+  @media (max-width: "1000px") {
+    .header {
+      .cart-icon {
+        right: 1em;
+      }
+    }
+  }
 }
