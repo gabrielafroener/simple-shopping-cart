@@ -1,31 +1,45 @@
 import React, { useState, useEffect } from "react";
 import { List, Icon, Modal } from "antd";
-import { removeFromCart, addToCart, clearCart } from "../actions";
+import { removeFromCart, addToCart, clearCart, stopTimer } from "../actions";
 import { connect } from "react-redux";
 import Layout from "../components/Layout";
 import "./styles/checkout.scss";
 
 const CheckoutPage = ({
   products = [],
+  timer = "stopped",
   removeFromCart,
   addToCart,
-  clearCart
+  clearCart,
+  stopTimer
 }) => {
   const [cartList, setCartList] = useState(products);
   const [totalPrice, setTotalPrice] = useState(0);
   const [checkoutState, setCheckoutState] = useState("disabled");
+  const [timerCount, setTimerCount] = useState(timer);
 
   useEffect(() => {
     setCartList(products);
+
     let total = 0;
     products.forEach(p => {
       total = total + p.price * p.count;
     });
     setTotalPrice(total);
-    products && products.length > 0
-      ? setCheckoutState("checkout-button")
-      : setCheckoutState("disabled");
-  }, [products]);
+
+    if (products && products.length > 0) {
+      setCheckoutState("checkout-button");
+    } else {
+      setCheckoutState("disabled");
+      stopTimer();
+    }
+  }, [products, stopTimer]);
+
+  timer === 0 && stopTimer() && clearCart();
+
+  useEffect(() => {
+    setTimerCount(timer);
+  }, [timer]);
 
   const handleCkechout = () => {
     checkoutState === "checkout-button" &&
@@ -35,11 +49,16 @@ const CheckoutPage = ({
     clearCart();
   };
 
+  const handleRemoveFromCart = item => {
+    removeFromCart(item);
+    products.length === 0 && stopTimer();
+  };
+
   return (
     <Layout>
       <div className="checkout">
         <h1>CHECKOUT</h1>
-        <h2>Tempo restante: {}</h2>
+        {timerCount !== "stopped" && <h2>Time Remaining: {timerCount}</h2>}
         <List
           className="list"
           bordered
@@ -53,7 +72,7 @@ const CheckoutPage = ({
                   {item.count}
                   <Icon
                     type="minus-circle"
-                    onClick={() => removeFromCart(item)}
+                    onClick={() => handleRemoveFromCart(item)}
                   />
                 </div>
                 {item.title}
@@ -81,12 +100,14 @@ const CheckoutPage = ({
 
 function mapStateToProps(state) {
   return {
-    products: state.cart
+    products: state.cart,
+    timer: state.timer
   };
 }
 
 export default connect(mapStateToProps, {
   removeFromCart,
   addToCart,
-  clearCart
+  clearCart,
+  stopTimer
 })(CheckoutPage);
