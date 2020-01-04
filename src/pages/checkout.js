@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { List, Icon, Modal } from "antd";
+import { Redirect } from "react-router";
 import { removeFromCart, addToCart, clearCart, stopTimer } from "../actions";
 import { connect } from "react-redux";
 import Layout from "../components/Layout";
@@ -17,6 +18,7 @@ const CheckoutPage = ({
   const [totalPrice, setTotalPrice] = useState(0);
   const [checkoutState, setCheckoutState] = useState("disabled");
   const [timerCount, setTimerCount] = useState(timer);
+  const [goHome, setGoHome] = useState(false);
 
   useEffect(() => {
     setCartList(products);
@@ -32,8 +34,16 @@ const CheckoutPage = ({
     } else {
       setCheckoutState("disabled");
       stopTimer();
+      !goHome &&
+        Modal.success({
+          title: 'Click "Ok" to go back to the home page.',
+          // content: 'Click "Ok" to go back to the home page.',
+          onOk() {
+            setGoHome(true);
+          }
+        });
     }
-  }, [products, stopTimer]);
+  }, [goHome, products, stopTimer]);
 
   timer === 0 && stopTimer() && clearCart();
 
@@ -41,18 +51,25 @@ const CheckoutPage = ({
     setTimerCount(timer);
   }, [timer]);
 
-  const handleCkechout = () => {
+  const handleCheckout = () => {
     checkoutState === "checkout-button" &&
       Modal.success({
-        content: "Done! Thank You (:"
+        title: "Done! Thank You (:",
+        content: 'Click "Ok" to go back to the home page.',
+        onOk() {
+          clearCart();
+          setGoHome(true);
+        }
       });
-    clearCart();
   };
 
   const handleRemoveFromCart = item => {
     removeFromCart(item);
-    products.length === 0 && stopTimer();
   };
+
+  if (goHome) {
+    return <Redirect to="/" />;
+  }
 
   return (
     <Layout>
@@ -88,7 +105,7 @@ const CheckoutPage = ({
           <div className="total">{`TOTAL: $${totalPrice.toFixed(2)}`}</div>
           <div
             className={`total ${checkoutState}`}
-            onClick={() => handleCkechout()}
+            onClick={() => handleCheckout()}
           >
             CHECKOUT
           </div>
