@@ -67,6 +67,15 @@ const CheckoutPage = ({
     removeFromCart(item);
   };
 
+  const timeInMmSs = seconds => {
+    let sec = seconds % 60;
+    let min = parseInt(seconds / 60);
+    if (sec.toString().length === 1) {
+      sec = "0" + sec;
+    }
+    return `${min}:${sec} min`;
+  };
+
   if (goHome) {
     return <Redirect to="/" />;
   }
@@ -75,7 +84,9 @@ const CheckoutPage = ({
     <Layout>
       <div className="checkout">
         <h1>CHECKOUT</h1>
-        {timerCount !== "stopped" && <h2>Time Remaining: {timerCount}</h2>}
+        {timerCount !== "stopped" && (
+          <h2>Time remaining: {timeInMmSs(timerCount)}</h2>
+        )}
         <List
           className="list"
           bordered
