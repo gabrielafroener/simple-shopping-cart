@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Icon, Badge } from "antd";
+import { Icon, Badge, Popover } from "antd";
 import { connect } from "react-redux";
 
 import "./styles/layout.scss";
@@ -16,15 +16,25 @@ const Header = ({ products = [] }) => {
     setCount(total);
   }, [products]);
 
+  const content = (
+    <div>
+      {products.map(p => (
+        <p>{p.title}</p>
+      ))}
+    </div>
+  );
+
   return (
     <div className="header">
       <Link to="/" className="logo">
         <Icon type="cloud" theme="filled" />
       </Link>
       <Link to="/checkout" className="cart-icon">
-        <Badge count={_count}>
-          <Icon type="shopping-cart" className="icon" />
-        </Badge>
+        <Popover content={content} placement="bottom">
+          <Badge count={_count}>
+            <Icon type="shopping-cart" className="icon" />
+          </Badge>
+        </Popover>
       </Link>
     </div>
   );
