@@ -5,12 +5,16 @@ import { connect } from "react-redux";
 
 import "./styles/layout.scss";
 
-const Header = ({ count = 0 }) => {
-  const [_count, setCount] = useState(count);
+const Header = ({ products = [] }) => {
+  const [_count, setCount] = useState(0);
 
   useEffect(() => {
-    setCount(count);
-  }, [count]);
+    let total = 0;
+    products.forEach(p => {
+      total = total + p.count;
+    });
+    setCount(total);
+  }, [products]);
 
   return (
     <div className="header">
@@ -27,7 +31,7 @@ const Header = ({ count = 0 }) => {
 };
 
 const mapStateToProps = state => ({
-  count: state.cart && state.cart.length
+  products: state.cart
 });
 
 export default connect(mapStateToProps)(Header);
