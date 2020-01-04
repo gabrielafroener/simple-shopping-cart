@@ -85,12 +85,12 @@ const CheckoutPage = ({
             item && (
               <List.Item className="list-item">
                 <div className="count-section">
-                  <Icon type="plus-circle" onClick={() => addToCart(item)} />
-                  {item.count}
                   <Icon
                     type="minus-circle"
                     onClick={() => handleRemoveFromCart(item)}
                   />
+                  {item.count}
+                  <Icon type="plus-circle" onClick={() => addToCart(item)} />
                 </div>
                 {item.title}
                 <div className="price">
