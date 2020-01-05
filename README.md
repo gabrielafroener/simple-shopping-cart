@@ -1,5 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+This is a web application of a simple shopping cart example made with React.js, Sass and AntDesign and responsive layout.
+
 ## Available Scripts
 
 In the project directory, you can run:
