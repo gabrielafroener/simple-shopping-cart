@@ -5,22 +5,29 @@
 
   .header {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     width: 100vw;
     font-size: 38px;
-    background-color: #3b3561;
+    background-color: #1890ff;
     position: absolute;
+    padding: 0 1em;
 
     .logo {
       cursor: pointer;
       color: white;
+      display: flex;
+      align-items: center;
+      display: flex;
+      padding: 0.3em;
+
+      span {
+        font-size: 24px;
+      }
     }
 
     .cart-icon {
       color: white;
-      position: absolute;
-      right: 2em;
       cursor: pointer;
 
       .icon {

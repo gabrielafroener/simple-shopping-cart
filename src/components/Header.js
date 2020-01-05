@@ -28,6 +28,7 @@ const Header = ({ products = [] }) => {
     <div className="header">
       <Link to="/" className="logo">
         <Icon type="cloud" theme="filled" />
+        <span style={{ padding: "0 .3em" }}> CLOUD STORE</span>
       </Link>
       <Link to="/checkout" className="cart-icon">
         <Popover content={content} placement="bottom">
