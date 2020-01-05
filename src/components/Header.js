@@ -19,7 +19,7 @@ const Header = ({ products = [] }) => {
   const content = (
     <div>
       {products.map(p => (
-        <p>{p.title}</p>
+        <p>{`${p.count}x ${p.title}`}</p>
       ))}
     </div>
   );
